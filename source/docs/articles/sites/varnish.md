@@ -1,4 +1,8 @@
 ---
+layout: landing
+varnish: true
+use:
+    - varnish
 title: Varnish Caching for High Performance with Drupal and WordPress
 description: Configure and verify Varnish is working on your WordPress or Drupal sites.
 category:
@@ -23,7 +27,7 @@ Varnish has been configured to respect any HTTP headers served by your site. If 
 See [Drupal's Performance Settings](/docs/articles/drupal/drupal-performance-and-caching-settings) for step-by-step instructions on how to optimize your caching configuration.
 
 ##See Also
-[Debugging Cache](/docs/articles/sites/varnish/debugging-cache/)
+[Understanding and Debugging Varnish Cache Issues](/docs/articles/sites/varnish/debugging-cache/)
 
 [Testing Varnish](/docs/articles/sites/varnish/testing-varnish/)
 

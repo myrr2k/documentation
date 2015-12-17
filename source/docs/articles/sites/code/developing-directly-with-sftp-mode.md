@@ -72,7 +72,7 @@ The main directory listing includes Pantheon, logs, environment data and configu
 
 ## Authenticating
 
-There are two ways to get access to your Pantheon site via SFTP. One method is by using you Pantheon account's Dashboard password.  
+There are two ways to get access to your Pantheon site via SFTP. One method is by using your Pantheon account's Dashboard password.  
 
 Alternatively, you can connect via SFTP using the public [SSH key you uploaded to your account](/docs/articles/users/loading-ssh-keys). This allows password-less authentication. Learn how to [generate a SSH key](/docs/articles/users/generating-ssh-keys).
 
@@ -108,7 +108,7 @@ SFTP mode works with any standards-compliant SFTP client, including many GUI too
 This is by design. Please see [Using the Pantheon Workflow
 ](/docs/articles/sites/code/using-the-pantheon-workflow#understanding-write-permissions-in-test-and-live) to learn why.
 
-### My STP client takes a long time to connect
+### My SFTP client takes a long time to connect
 
 Your SSH connection may be using a slow encryption protocol. Configuring your SSH client to use the `diffie-hellman-group1-sha1` protocol will result in the fastest connections. For OSX/Linux, add the following to your ssh config (~/.ssh/config):
 

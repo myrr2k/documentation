@@ -1,13 +1,18 @@
 ---
+migrate: true
+layout: landing
+use:
+    - migrate
 title: Migrate Sites to Pantheon
 description: General instructions for preparing and migrating remotely-hosted Drupal or WordPress sites to Pantheon.
 category:
 - getting-started
 keywords: migrate, migrating site, migrate from remote host, migrate existing site, migrate from other host, migrate from another host, how to migrate an existing site, alternate host, another host, migration, migrations, migrates, move site to pantheon, move from remote host, move from current host, move hosts, changing hosting providers, how to move hosting to pantheon
 ---
-Migrating a website from another environment is a complex task. Whether it is running locally, on a shared host, or on a cluster of virtual machines at an infrastructure-as-a-service provider, the goal is the same: move to Pantheon and enjoy the freedom to build awesome sites.
+Migrating a website from another environment is a complex task. Whether it is running locally on a shared host, or on a cluster of virtual machines at an infrastructure-as-a-service provider, the goal is the same: move to Pantheon and enjoy the freedom to build awesome sites.
 
 Your site migration has four phases. You’ll package your site, import it, test it out, and then change DNS and go live. With a good plan and understanding of the platform, the process will run smoothly.
+
 
 ## Pack Up
 
@@ -26,7 +31,7 @@ You’ll need to package up your:
 ### Evaluate Your Site
 
 1. Review your codebase.
- - Are you running another application in addition to WordPress or Drupal? See [Known Limitations](/docs/articles/sites/known-limitations/#one-application-per-site).
+ - Are you running another application in addition to WordPress or Drupal? See [Platform Considerations](/docs/articles/sites/platform-considerations/#one-application-per-site).
 2. Measure your database size.
 3. Locate your non-version-controlled static assets.
 4. Review your logs.
@@ -58,7 +63,7 @@ Using our importer during the site creation process has the following effects on
 
 The importer accepts either single-file site archives or separate archives of the code, database, and files. It accepts file uploads up to 100MB, and can download publicly-accessible archives up to 500MB. Acceptable file types include tar, zip, or gzip.
 
-File size limits are per archive. Providing three files instead of one effectively increases the entire site import size limit to 1.5GB (500MB code, 500MB databse, 500MB files).
+File size limits are per archive. Providing three files instead of one effectively increases the entire site import size limit to 1.5GB (500MB code, 500MB database, 500MB files).
 
 **Manual Site Import**
 
@@ -86,7 +91,7 @@ Having planned and prepared, your move should be an execution, rather than trial
 Single-file site archives less than 500MB, downloadable from a publicly accessible URL, can import from the command line with [Terminus](/docs/articles/local/cli/), the Pantheon command-line interface.
 
 ```nohighlight
-terminus sites create [--name=<name>] [--label=<label>] [--org=<org>] [--import=<url>]
+terminus sites import [--site=<name>] [--label=<label>] [--org=<org>] [--url=<url>]
 ```
 
 ### Create and Name the Site
@@ -124,18 +129,18 @@ If the files archive is larger than 500MB, use an SFTP client or rsync to upload
 
 Please see [Migrate to Pantheon: Manual Site Import](/docs/articles/sites/migrate/manual-site-import) for further details.
 ## Test Your Site
-When the site's code, database, and files are all in place, verify everything is working as expected. At the site dashboard, click "Visit Development Site" for initial verification.
+When the site's code, database, and files are all in place, verify everything is working as expected. At the Site Dashboard, click **Visit Development Site** for initial verification.
 
 Further, we recommend:
 
- - Using the Status tool in the site Dashboard
+ - Using the Status tool in the Site Dashboard
  - Enabling [New Relic](/docs/articles/sites/newrelic)
  - [Automated user acceptance testing](/docs/guides/automated-testing-wordpress-behat) with Behat, Selenium, or Casper.js
  - Load testing using tools like [Blazemeter](/docs/guides/load-testing-with-blazemeter/)
  - Manual [user acceptance testing](https://en.wikipedia.org/wiki/Acceptance_testing#User_acceptance_testing)
 
 ### WordPress Troubleshooting
-If you see an error that references sessions, similar to:
+If you see an error that references sessions similar to:
 ```
 Warning: session_start(): user session functions not defined
 ```

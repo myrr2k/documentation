@@ -13,7 +13,7 @@ Yes. Thousands of live production sites run on Pantheon.
 
 ### What versions of Drupal does Pantheon support?
 
-Pantheon supports Drupal 6 and 7. Users can create sandbox [Drupal 8 sites](/docs/articles/drupal/8/), but live Drupal 8 sites are unsupported. At this time, Drupal 8 support is on [Github](https://github.com/pantheon-systems/drops-8/issues) .
+Pantheon supports Drupal 6, 7, and 8 sites.
 
 ### What versions of WordPress does Pantheon support?
 
@@ -67,8 +67,11 @@ No. Pantheon's architecture is designed to provide high performance and a rich f
 Our solution is to deliver granular resources and powerful code management tools so that users who want to run a large portfolio of sites can do so easily, without running the risks inherent in multisite.
 
 ### Does Pantheon support WordPress Multisite?
+Yes, Pantheon supports the following use cases of [WordPress Site Networks](/docs/articles/wordpress/site-networks) created by WordPress' Multisite feature:
 
-No. While WordPress multisites have been successfully installed on the Pantheon platform, it is not a supported development practice due to [known issues](/docs/articles/wordpress/wordpress-known-issues#site-networks-/-multisite).
+- Blogs for faculty at a university
+- Franchise sites under a parent organization site
+- Sections within a media publication
 
 ### Does Pantheon support Drush?
 
@@ -80,7 +83,7 @@ Yes. You can invoke WP-CLI commands on Pantheon sites using [Terminus](/docs/art
 
 ### Does Pantheon support local development?
 
-Yes. Local development is a great best practice, and Pantheon supports a wide array of local development tools (e.g. MAMP, WAMP, Homebrew, etc).
+Yes. [Local development](/docs/articles/local/developing-locally) is a great best practice, and Pantheon supports a wide array of local development tools (e.g. MAMP, WAMP, Homebrew, etc).
 
 ### How does cron work with Drupal on Pantheon?
 

@@ -45,7 +45,7 @@ If the "Auto-Resolve Conflicts" option fails, the next step is to manually pull 
 This does not solve all problems that may arise, but it should take care of most situations.</div>
 
 ### Resolve Conflicts Locally
-Select the appropriate framework below for your web application, then execute the commands from within an up-to-date Git clone on your local machine. Add the `-Xtheirs` flag if you want to accept all changes.
+Select the appropriate framework below for your web application, then execute the commands from within an up-to-date Git clone on your local machine. The `Xtheirs` flag will attempt to automatically resolve conflicts with a preference for upstream changes and is safe to run if you don't have your own changes in any of the conflicting files (e.g. problems with .gitignore).
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li role="presentation" class="active"><a href="#d8" aria-controls="d8" role="tab" data-toggle="tab">Drupal 8</a></li>
@@ -57,36 +57,34 @@ Select the appropriate framework below for your web application, then execute th
 <!-- Tab panes -->
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="d8">
-  <pre><code>
-  git pull git://github.com/pantheon-systems/drops-8.git master
+  <pre><code class="bash hljs">
+  git pull -Xtheirs git://github.com/pantheon-systems/drops-8.git master
   # resolve conflicts
   git push origin master
   </code></pre>
   </div>
   <div role="tabpanel" class="tab-pane" id="d7">
-  <pre><code>
-  git pull git://github.com/pantheon-systems/drops-7.git master
+  <pre><code class="bash hljs">
+  git pull -Xtheirs git://github.com/pantheon-systems/drops-7.git master
   # resolve conflicts
   git push origin master
   </code></pre>
   </div>
   <div role="tabpanel" class="tab-pane" id="d6">
-  <pre><code>
-  git pull git://github.com/pantheon-systems/drops-6.git master
+  <pre><code class="bash hljs">
+  git pull -Xtheirs git://github.com/pantheon-systems/drops-6.git master
   # resolve conflicts
   git push origin master
   </code></pre>
   </div>
   <div role="tabpanel" class="tab-pane" id="wp">
-  <pre><code>
-  git pull git://github.com/pantheon-systems/WordPress.git master
+  <pre><code class="bash hljs">
+  git pull -Xtheirs git://github.com/pantheon-systems/WordPress.git master
   # resolve conflicts
   git push origin master  
   </code></pre>
   </div>
 </div>
-
-For more information on resolving conflicts, see [Git FAQs](/docs/articles/local/git-faq#frequently-asked-questions).
 
 ## Troubleshooting
 
@@ -95,6 +93,9 @@ For more information on resolving conflicts, see [Git FAQs](/docs/articles/local
 Conflicts can occur when the upstream you are trying to merge your code with has made alterations to files.
 
 _"When a merge isn’t resolved automatically, git leaves the index and the working tree in a special state that gives you all the information you need to help resolve the merge."_ - <u>Git Manual</u>
+
+For more information on resolving conflicts, see [Git FAQs](/docs/articles/local/git-faq#how-can-i-manually-resolve-conflicts?).
+
 
 ### Delete Merge Conflicts
 

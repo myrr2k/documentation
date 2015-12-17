@@ -11,7 +11,7 @@ The Terminus project's second version is developed and supported at [https://git
 Terminus is in a pre-release state with constant development. The commands in the repo may change and not all functionality will work for all use cases.
 
 ## Installation
-Installation instructions are maintained at the [project wiki](https://github.com/pantheon-systems/cli/wiki/Installation "Pantheon CLI wiki, installation page on Github").
+Installation instructions are maintained at the [project wiki](https://github.com/pantheon-systems/cli#installation "Pantheon CLI wiki, installation page on Github").
 ## Use
 Usage instructions are maintained at the [project wiki](https://github.com/pantheon-systems/cli/wiki/Usage "Pantheon CLI wiki, usage page on Github").
 
@@ -34,7 +34,7 @@ We've included CLI instructions in many of our articles and guides.
 - [Migrate Sites to Pantheon](/docs/articles/sites/migrate/)
 - [Timeouts](/docs/articles/sites/timeouts/)
 - [Resetting Passwords](/docs/articles/sites/resetting-passwords/)
-- [Debugging Cache](/docs/articles/sites/varnish/debugging-cache/)
+- [Understanding and Debugging Varnish Cache Issues](/docs/articles/sites/varnish/debugging-cache/)
 - [Launch Check - Drupal Performance and Configuration Analysis](/docs/articles/drupal/launch-check-drupal-performance-and-configuration-analysis/)
 - [Apache Solr on Pantheon](/docs/articles/sites/apache-solr)
 - [Email on Pantheon](/docs/articles/sites/code/email)

@@ -1,15 +1,15 @@
 ---
-title: Known Limitations
-description: A list of the Pantheon Website Management Platform's known limitations.
+title: Platform Considerations
+description: A list of the Pantheon platform considerations.
 keywords: known limitations, multisite, applications, use more than one application, large directories, inodes, streaming media, large file, ip based, ip based security, ip based security systems, pantheon limitations, php short tags, short tags, nginx.conf
 ---
-This page is used to keep track of common/known limitations. Most of Pantheon's limitations stem from its distributed nature. Check back often, as we are keeping it up to date as we make improvements to address these limitations.
+This page is used to keep track of common platform considerations, mostly derived from Pantheon's distributed nature. Check back often, as we are keeping it up to date as we make improvements to address these limitations.
 
 ## Multisite
 
-We do not support [Drupal Multisite](http://drupal.org/documentation/install/multi-site). See blog posts: [Why Drupal Multisite is not Enterprise Grade](https://pantheon.io/blog/why-drupal-multisite-not-enterprise-grade) and [Much Ado About Drupal Multisite](https://pantheon.io/blog/much-ado-about-drupal-multisite).
+Pantheon supports designated use cases for [WordPress Site Networks](/docs/articles/wordpress/site-networks) created by WordPress' Multisite feature.
 
-For WordPress, see [Can I use WordPress Multisite?](https://pantheon.io/docs/articles/wordpress/wordpress-faq/#can-i-use-wordpress-multisite?)
+We do not support [Drupal Multisite](http://drupal.org/documentation/install/multi-site). See blog posts: [Why Drupal Multisite is not Enterprise Grade](https://pantheon.io/blog/why-drupal-multisite-not-enterprise-grade) and [Much Ado About Drupal Multisite](https://pantheon.io/blog/much-ado-about-drupal-multisite).
 
 ## One Application per Site
 
@@ -41,7 +41,7 @@ Pantheon cannot be used to host files over 256MB, no matter how the file is upl
 
 If you are distributing large binaries or hosting big media files, we recommend using a CDN like Amazon S3 as a cost-effective file serving solution. Modules such as [Amazon S3 CORS Upload](https://drupal.org/project/amazons3_cors) allow uploads directly to S3 from your Drupal site without using Pantheon as an intermediary.
 
-## Rename/Move Files or Directories 
+## Rename/Move Files or Directories
 
 ### Files
 

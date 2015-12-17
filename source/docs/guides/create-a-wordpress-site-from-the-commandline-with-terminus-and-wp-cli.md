@@ -96,29 +96,28 @@ Success: Pow! You created a new site!
 $
 ```
 To create a site with one command, you need
-- **Product ID:** an internal Pantheon UUID for the different systems that you can install. WordPress on Pantheon is `e8fe8550-1ab9-4964-8838-2b9abdccf4bf`. To see all products, `$ terminus products list`.
-- **site name:** A machine-readable name, that will become a part of your environments' URLs. `--site-name=cli-test` will yield a Pantheon development environment URL of `http://dev-cli-test.pantheon.io`. This name will also be used in all terminus commands against the site, so it's a good idea to keep it short. The site name must be unique on Pantheon.
-- **site label:** A human-readable name, used to label your site on the Pantheon Dashboard. Can contain capital letters and spaces.
+- **Upstream ID:** an internal Pantheon UUID for the different systems that you can install. WordPress on Pantheon is `e8fe8550-1ab9-4964-8838-2b9abdccf4bf`. To see all products, `$ terminus upstreams list`.
+- **Site Name:** A machine-readable name, that will become a part of your environments' URLs. `--site=cli-test` will yield a Pantheon development environment URL of `http://dev-cli-test.pantheon.io`. This name will also be used in all terminus commands against the site, so it's a good idea to keep it short. The site name must be unique on Pantheon.
+- **Label:** A human-readable name, used to label your site on the Pantheon Dashboard. Can contain capital letters and spaces.
 - **Organization ID:** The UUID of the organization that will own the site.
 
 The format for creating a site with a single command is:
 
 ```nohighlight
-$ terminus sites create [--product=<productid>] \  
-                        [--name=<name>] \  
+$ terminus sites create [--upstream=<upstreamid>] \  
+                        [--site=<name>] \  
                         [--label=<label>] \  
-                        [--org=<org>] \  
-                        [--import=<url>]  
+                        [--org=<id>] \    
 ```
 
 For my test site, I used the following:  
-**Product** = WordPress
+**Upstream** = WordPress
 **Site Name** = cli-test  
 **Label** = Command Line Test
 
 ```nohighlight
-$ terminus sites create --product=e8fe8550-1ab9-4964-8838-2b9abdccf4b \  
-                        --name=cli-test \  
+$ terminus sites create --upstream=e8fe8550-1ab9-4964-8838-2b9abdccf4b \  
+                        --site=cli-test \  
                         --label="Command Line Test" \  
                         --org=YOUR-ORG-ID \  
 ```
@@ -193,7 +192,7 @@ Return to the terminal, we don't need no stinking mouse.
 
 ## Prepare for Development
 
-I use a few plugins on every site, but  [WP-CFM](https://github.com/forumone/wp-cfm) is the most important. It allows me to track configuration changes, export them to code, deploy them as code, and import the config to my database without disrupting the content coming into the **Live Environment**. For more information on using WP-CFM on Pantheon, please see our article on [WordPress Configuration Management](/docs/articles/wordpress/wordpress-configuration-management-wp-cfm).
+I use a few plugins on every site, but  [WP-CFM](https://github.com/forumone/wp-cfm) is the most important. It allows me to track configuration changes, export them to code, deploy them as code, and import the config to my database without disrupting the content coming into the **Live Environment**. For more information on using WP-CFM on Pantheon, please see our article on [WordPress Configuration Management](/docs/articles/wordpress/configuration-management-plugin).
 ```nohighlight
 $ terminus wp plugin install --activate --site=cli-test --env=dev
 ```
@@ -210,7 +209,7 @@ Activating 'wp-cfm'...
 Success: Plugin 'wp-cfm' activated.
 ```
 
-Now I can [use WP-CFM](/docs/articles/wordpress/wordpress-configuration-management-wp-cfm) to create a bundle that will track my configurations and export them to code.
+Now I can [use WP-CFM](/docs/articles/wordpress/configuration-management-plugin) to create a bundle that will track my configurations and export them to code.
 
 If you have the **Site Dashboard** open, you'll see the 19 files with changes ready to commit in a yellow box. You can expand that to see which files changed and commit through the UI, or use `$ terminus site code diffstat` and `$ terminus site code commit`
 
@@ -303,7 +302,6 @@ $ terminus site code commit --site=cli-test \
                             --env=dev \  
                             --message="Install Pinboard theme" \
                             --yes \  
-                            --branchname=master
 ```
 
 Terminus connects to Pantheon's API, which makes real-time updates to any Dashboard you have open. What you do in Terminus is immediately represented in your Dashboard, so it is always up to date.
@@ -326,7 +324,6 @@ $ terminus site code commit --site=cli-test \
                             --env=dev \  
                             --message="Create cli-test-theme child of pinboard theme" \
                             --yes \  
-                            --branchname=master
 ```
 
 Now you're ready to edit the cli-test theme, allowing for upstream theme improvements in the pinboard theme to happen without interfering with the functionality of your site.

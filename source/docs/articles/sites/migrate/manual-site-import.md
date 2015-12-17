@@ -10,12 +10,13 @@ Manually import your site to Pantheon outside of the provided [Importer Tool](/d
 * **Custom Upstream**: Site should receive updates based on an upstream other than vanilla Drupal or WordPress (e.g Panopoly or your agency's customized WordPress).
 * **Preserve Git History**: Site's existing Git commit history should be retained.
 * **Sites running Drupal 8**
+* **[WordPress Site Networks](/docs/articles/sites/migrate/wordpress-site-networks/)**
 
 ## Requirements
 
 * [Download](http://git-scm.com/downloads) and install [Git](/docs/articles/local/starting-with-git/)
-* [Rsync or SFTP Client](https://pantheon.io/docs/articles/local/rsync-and-sftp/)
-* [MySQL Client](https://pantheon.io/docs/articles/local/accessing-mysql-databases/)
+* [Rsync or SFTP Client](/docs/articles/local/rsync-and-sftp/)
+* [MySQL Client](/docs/articles/local/accessing-mysql-databases/)
 
 ## Create a New Pantheon Site and Start from Scratch
 
@@ -33,10 +34,12 @@ Starting from scratch allows your site to connect to that upstream so you can la
 
 As long as you've chosen the same codebase (Drupal 7, Commerce Kickstart, etc.) as the starting point of your Pantheon site, you can use Git to import your existing code and commit history. If you don’t have a Git version controlled codebase, the following will still work.
 
-1. Navigate to your existing site's code directory in a local terminal. If your existing code is not version controlled with Git, run:
+1. Navigate to your existing site's code directory in a local terminal. If your existing code is not version controlled with Git, create a repository and add an initial commit:
 
  ```bash
  git init
+ git add .
+ git commit -m "initial commit"
  ```
 2. From the Dev environment of the site Dashboard, set the site's [connection mode](/docs/articles/getting-started/#interact-with-your-code) to Git.
 3. Copy the SSH URL for the site repository, found in the [clone command](/docs/articles/local/starting-with-git/#step-2-copy-the-git-clone-command). **Do not copy `git clone` or the site name.** The URL should look similar to the following:
@@ -77,7 +80,7 @@ As long as you've chosen the same codebase (Drupal 7, Commerce Kickstart, etc.) 
 
 ## Files
 
-**Files** - anything in `sites/default/files` for Drupal or `wp-content/uploads` for WordPress. This houses a combination of uploaded content from site users, along with generated stylesheets, aggregated scripts, image styles, etc. For information on highly populated directories, see [Known Limitations](/docs/articles/sites/known-limitations/#highly-populated-directories).
+**Files** - anything in `sites/default/files` for Drupal or `wp-content/uploads` for WordPress. This houses a combination of uploaded content from site users, along with generated stylesheets, aggregated scripts, image styles, etc. For information on highly populated directories, see [Platform Considerations](/docs/articles/sites/platform-considerations/#highly-populated-directories).
 
 Files are stored separately from the site's code. Larger file structures can fail in the Dashboard import due to sheer volume. It's best to use a utility such as an SFTP client or rsync. The biggest issue is having the transfer stopped due to connectivity issues. To handle that scenario, try this handy bash script:  
 
